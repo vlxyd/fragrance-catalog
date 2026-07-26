@@ -1,0 +1,38 @@
+[
+  {
+    "id": "velvet-noir",
+    "slug": "velvet-noir",
+    "name": "Velvet Noir",
+    "description": "A deep, velvet-tinged blend of black tea, rose absolute, and warm cedar.",
+    "brandId": "maison-eclat",
+    "categoryId": "eau-de-parfum",
+    "notes": { "top": ["Black Tea", "Bergamot"], "middle": ["Rose Absolute", "Jasmine Sambac"], "base": ["Cedarwood", "Amber Resin", "Musk"] },
+    "gender": "Women",
+    "concentration": "EDP",
+    "size": "100 ml",
+    "price": 192,
+    "availability": "In stock",
+    "featured": true,
+    "isNew": true,
+    "image": "/product-velvet.svg",
+    "gallery": ["/product-velvet.svg", "/product-amber.svg"]
+  },
+  {
+    "id": "golden-iris",
+    "slug": "golden-iris",
+    "name": "Golden Iris",
+    "description": "Luminous iris, saffron, and suede create a polished signature scent.",
+    "brandId": "atelier-soleil",
+    "categoryId": "parfum",
+    "notes": { "top": ["Saffron", "Pear"], "middle": ["Iris Butter", "Geranium"], "base": ["Suede", "Amber", "Vetiver"] },
+    "gender": "Unisex",
+    "concentration": "Parfum",
+    "size": "75 ml",
+    "price": 238,
+    "availability": "Limited",
+    "featured": true,
+    "isNew": false,
+    "image": "/product-iris.svg",
+    "gallery": ["/product-iris.svg", "/product-noir.svg"]
+  }
+]

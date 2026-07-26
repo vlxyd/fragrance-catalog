@@ -1,0 +1,10 @@
+[
+  {
+    "id": "u_1784982828154",
+    "email": "admin@example.com",
+    "password": "$2b$10$UUi6BtagLpUPeHSNbdfTZ.FDMouYy.VLQdRvwduiOz3eJBx2a2Wqy",
+    "name": "Administrator",
+    "role": "ADMIN",
+    "createdAt": "2026-07-25T12:33:48.154Z"
+  }
+]
