@@ -97,21 +97,33 @@ export default function AdminProductsPage() {
 
     const tags = parseTags(form.tags);
 
-    const readFilesAsDataUrls = async (files: File[]) => {
-      const readers = files.map(
-        (file) =>
-          new Promise<string>((resolve, reject) => {
-            const reader = new FileReader();
-            reader.onload = () => resolve(reader.result as string);
-            reader.onerror = () => reject(new Error('Could not read image'));
-            reader.readAsDataURL(file);
-          }),
-      );
+const uploadFiles = async (files: File[]) => {
+  const urls: string[] = [];
 
-      return Promise.all(readers);
-    };
+  for (const file of files) {
+    const formData = new FormData();
+    formData.append("file", file);
 
-    const gallery = selectedImages.length ? await readFilesAsDataUrls(selectedImages) : [];
+    const res = await fetch("/api/upload", {
+      method: "POST",
+      body: formData,
+    });
+
+    if (!res.ok) {
+      const error = await res.text();
+      throw new Error(error);
+    }
+
+    const data = await res.json();
+    urls.push(data.url);
+  }
+
+  return urls;
+};
+
+const gallery = selectedImages.length
+  ? await uploadFiles(selectedImages)
+  : [];
 
     const payload = {
       name: form.name.trim(),
