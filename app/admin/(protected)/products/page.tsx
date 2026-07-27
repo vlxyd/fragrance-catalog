@@ -44,6 +44,15 @@ function parseTags(value?: string | null): string[] {
     .filter(Boolean);
 }
 
+function slugify(text: string) {
+  return text
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, "-")
+    .replace(/[^a-z0-9-]+/g, "")
+    .replace(/--+/g, "-");
+}
+
 export default function AdminProductsPage() {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
@@ -127,7 +136,7 @@ const gallery = selectedImages.length
 
     const payload = {
       name: form.name.trim(),
-      slug: form.slug.trim() || form.name.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-'),
+      slug: form.slug || slugify(form.name),
       description: form.description.trim(),
       price: Number(form.price) || 0,
       tags,
@@ -172,18 +181,31 @@ const gallery = selectedImages.length
           <p className="mt-1 text-sm text-stone-500">Create a new product or update an existing one.</p>
 
           <form onSubmit={handleSubmit} className="mt-4 space-y-3">
+<input
+  value={form.name}
+  onChange={(e) => {
+    const name = e.target.value;
+
+    setForm({
+      ...form,
+      name,
+      slug: slugify(name),
+    });
+  }}
+  placeholder="Name"
+  className="w-full rounded-full border border-stone-200 bg-stone-50 px-4 py-3 text-stone-900 outline-none focus:border-amber-500 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-100"
+/>
             <input
-              value={form.name}
-              onChange={(e) => setForm({ ...form, name: e.target.value })}
-              placeholder="Name"
-              className="w-full rounded-full border border-stone-200 bg-stone-50 px-4 py-3 text-stone-900 outline-none focus:border-amber-500 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-100"
-            />
-            <input
-              value={form.slug}
-              onChange={(e) => setForm({ ...form, slug: e.target.value })}
-              placeholder="Slug"
-              className="w-full rounded-full border border-stone-200 bg-stone-50 px-4 py-3 text-stone-900 outline-none focus:border-amber-500 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-100"
-            />
+  value={form.slug}
+  onChange={(e) =>
+    setForm({
+      ...form,
+      slug: slugify(e.target.value),
+    })
+  }
+  placeholder="Slug"
+  className="w-full rounded-full border border-stone-200 bg-stone-50 px-4 py-3 text-stone-900 outline-none focus:border-amber-500 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-100"
+/>
             <textarea
               value={form.description}
               onChange={(e) => setForm({ ...form, description: e.target.value })}

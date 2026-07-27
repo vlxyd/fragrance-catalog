@@ -16,11 +16,14 @@ type ProductCardProduct = {
   price: number;
   availability: string;
   featured: boolean;
-  image: string;
+  gallery?: {
+  url: string;
+}[];
 };
 
 export function ProductCard({ product }: { product: ProductCardProduct }) {
-  const imageSrc = product.image?.trim() ? product.image : '/product-velvet.svg';
+  const imageSrc =
+  product.gallery?.[0]?.url || "/product-velvet.svg";
 
   return (
     <motion.article

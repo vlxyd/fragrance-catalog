@@ -4,6 +4,15 @@ import authOptions from '@/lib/auth';
 import prisma from '@/lib/prisma';
 import { ensureCatalogSeed } from '@/lib/catalog-seed';
 
+function slugify(text: string) {
+  return text
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, "-")
+    .replace(/[^\w-]+/g, "")
+    .replace(/--+/g, "-");
+}
+
 async function isAdmin() {
   const session = await getServerSession(authOptions as any);
   return Boolean(session && (session as any).user?.role === 'ADMIN');
@@ -23,7 +32,9 @@ async function getDefaultRelationIds() {
 async function buildProductData(body: any, existing?: any) {
   const relations = await getDefaultRelationIds();
   const name = body.name || existing?.name || 'Untitled';
-  const slug = body.slug || existing?.slug || `p-${Date.now()}`;
+  const slug = slugify(
+  body.slug || body.name || existing?.name || `p-${Date.now()}`
+);
   const description = body.description ?? existing?.description ?? '';
   const price = body.price !== undefined && body.price !== '' ? Number(body.price) : existing?.price ?? 0;
   const tags = Array.isArray(body.tags)
