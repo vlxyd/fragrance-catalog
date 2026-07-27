@@ -32,11 +32,20 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
     <div className="space-y-10">
       <section className="grid gap-8 rounded-[2.5rem] border border-stone-200/80 bg-white/80 p-6 shadow-[0_24px_80px_rgba(0,0,0,0.05)] dark:border-stone-800 dark:bg-stone-900/80 lg:grid-cols-[1.05fr_0.95fr] lg:p-10">
         <div className="grid gap-4 sm:grid-cols-2">
-          {product.gallery.map((image) => (
-            <div key={image} className="overflow-hidden rounded-[1.5rem] border border-stone-200 bg-stone-100 dark:border-stone-800 dark:bg-stone-800">
-              <Image src={image} alt={product.name} width={800} height={900} className="h-64 w-full object-cover" />
-            </div>
-          ))}
+       {product.gallery.map((image) => (
+  <div
+    key={image}
+    className="relative h-[700px] w-full overflow-hidden rounded-[2rem] border border-stone-200 dark:border-stone-800"
+  >
+    <Image
+      src={image}
+      alt={product.name}
+      fill
+      priority
+      className="object-cover"
+    />
+  </div>
+))}
         </div>
         <div className="flex flex-col justify-between">
           <div>
