@@ -16,14 +16,12 @@ type ProductCardProduct = {
   price: number;
   availability: string;
   featured: boolean;
-  gallery?: {
-  url: string;
-}[];
+  gallery: string[];
 };
 
 export function ProductCard({ product }: { product: ProductCardProduct }) {
   const imageSrc =
-  product.gallery?.[0]?.url || "/product-velvet.svg";
+  product.gallery?.[0] || "/product-velvet.svg";
 
   return (
     <motion.article
