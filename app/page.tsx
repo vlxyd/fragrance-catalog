@@ -16,7 +16,7 @@ export default async function Home() {
       <section className="overflow-hidden rounded-[2.75rem] border border-stone-200/80 bg-white/80 p-8 shadow-[0_24px_80px_rgba(0,0,0,0.05)] dark:border-stone-800 dark:bg-stone-900/80 lg:p-12">
         <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <div>
-            <p className="text-sm uppercase tracking-[0.34em] text-amber-600">Aurelia Maison</p>
+            <p className="text-sm uppercase tracking-[0.34em] text-amber-600">Agape Essence</p>
             <h1 className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-stone-900 dark:text-stone-100 sm:text-5xl lg:text-6xl">
               Discover scents that feel like velvet, light, and gold.
             </h1>

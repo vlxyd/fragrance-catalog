@@ -14,11 +14,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Aurelia | Premium Fragrance Catalog",
+  title: "Agape Essence | Premium Fragrance Catalog",
   description: "A luxury fragrance catalog with editorial storytelling, curated collections, and an elegant admin experience.",
   keywords: ["fragrance", "perfume", "luxury catalog", "premium scents"],
   openGraph: {
-    title: "Aurelia | Premium Fragrance Catalog",
+    title: "Agape Essence | Premium Fragrance Catalog",
     description: "Discover refined fragrances through a premium editorial experience.",
     type: "website",
   },

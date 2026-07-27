@@ -12,10 +12,10 @@ export default function AboutPage() {
       <section className="overflow-hidden rounded-[2.5rem] border border-stone-200/80 bg-white/80 p-8 shadow-[0_24px_80px_rgba(0,0,0,0.05)] dark:border-stone-800 dark:bg-stone-900/80 lg:p-10">
         <div className="grid gap-10 lg:grid-cols-[1fr_0.8fr]">
           <div>
-            <p className="text-sm uppercase tracking-[0.34em] text-amber-600">About Aurelia</p>
+            <p className="text-sm uppercase tracking-[0.34em] text-amber-600">About Agape Essence</p>
             <h1 className="mt-4 text-4xl font-semibold tracking-tight text-stone-900 dark:text-stone-100 sm:text-5xl">A fragrance house built around emotion, atmosphere, and timeless detail.</h1>
             <p className="mt-6 text-lg leading-8 text-stone-600 dark:text-stone-400">
-              Aurelia brings together contemporary perfumery and premium presentation to create a catalog that feels intimate, editorial, and deeply considered.
+              Agape Essence brings together contemporary perfumery and premium presentation to create a catalog that feels intimate, editorial, and deeply considered.
             </p>
           </div>
           <div className="rounded-[2rem] border border-stone-200 bg-gradient-to-br from-stone-900 to-stone-700 p-8 text-stone-100 dark:border-stone-700">
@@ -37,7 +37,7 @@ export default function AboutPage() {
       </section>
 
       <section className="rounded-[2.5rem] border border-stone-200 bg-white/80 p-8 shadow-sm dark:border-stone-800 dark:bg-stone-900/80">
-        <SectionHeading eyebrow="Our story" title="A modern salon of scent and style" description="We designed Aurelia to feel less like a marketplace and more like a private discovery experience — thoughtfully edited, elegantly paced, and rich in character." />
+        <SectionHeading eyebrow="Our story" title="A modern salon of scent and style" description="We designed Agape Essence to feel less like a marketplace and more like a private discovery experience — thoughtfully edited, elegantly paced, and rich in character." />
       </section>
     </div>
   );

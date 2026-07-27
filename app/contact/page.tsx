@@ -1,7 +1,7 @@
 import { Camera, Mail, MapPin, Phone } from "lucide-react";
 
 const socials = [
-  { label: "Instagram", href: "https://instagram.com", icon: Camera },
+  { label: "Instagram", href: "https://www.instagram.com/agapeessence.official/", icon: Camera },
   { label: "Email", href: "mailto:hello@aurelia.com", icon: Mail },
 ];
 
@@ -9,7 +9,7 @@ export default function ContactPage() {
   return (
     <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
       <section className="rounded-[2.5rem] border border-stone-200/80 bg-white/80 p-8 shadow-[0_24px_80px_rgba(0,0,0,0.05)] dark:border-stone-800 dark:bg-stone-900/80">
-        <p className="text-sm uppercase tracking-[0.34em] text-amber-600">Contact Aurelia</p>
+        <p className="text-sm uppercase tracking-[0.34em] text-amber-600">Contact Agape Essence</p>
         <h1 className="mt-4 text-4xl font-semibold tracking-tight text-stone-900 dark:text-stone-100">We would love to welcome you into the collection.</h1>
         <div className="mt-8 space-y-4 text-sm text-stone-600 dark:text-stone-400">
           <div className="flex items-center gap-3"><Mail className="text-amber-600" size={18} /> hello@aurelia.com</div>
