@@ -4,6 +4,8 @@ import { ProductCard } from "@/components/product-card";
 import { SectionHeading } from "@/components/section-heading";
 import { getCatalogData } from "@/lib/catalog-service";
 
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
   const { brands, featuredProducts, newArrivals, bestSellers } = await getCatalogData();
 
