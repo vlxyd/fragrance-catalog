@@ -114,9 +114,10 @@ export default function ShopPage() {
           </select>
         </div>
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {filteredProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
+          {filteredProducts.map((product) => {
+  console.log(product);
+  return <ProductCard key={product.id} product={product} />;
+})}
         </div>
       </section>
     </div>

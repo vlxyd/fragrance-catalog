@@ -23,6 +23,9 @@ export function ProductCard({ product }: { product: ProductCardProduct }) {
   const imageSrc =
   product.gallery?.[0] || "/product-velvet.svg";
 
+console.log(product);
+console.log(product.gallery);
+
   return (
     <motion.article
       initial={{ opacity: 0, y: 16 }}

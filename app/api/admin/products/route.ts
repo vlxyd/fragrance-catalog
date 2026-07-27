@@ -69,8 +69,20 @@ async function buildProductData(body: any, existing?: any) {
 export async function GET() {
   try {
     await ensureCatalogSeed();
-    const products = await prisma.product.findMany({ include: { gallery: true, brand: true, category: true } });
-    return NextResponse.json(products);
+    const products = await prisma.product.findMany({
+    include: {
+      gallery: true,
+      brand: true,
+      category: true,
+    },
+  });
+
+  const normalizedProducts = products.map((product) => ({
+    ...product,
+    gallery: product.gallery.map((image) => image.url),
+  }));
+
+  return NextResponse.json(normalizedProducts);
   } catch (error) {
     return NextResponse.json({ error: 'Could not load products' }, { status: 500 });
   }
