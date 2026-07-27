@@ -96,6 +96,24 @@ export async function getCatalogData() {
   ]);
 
   const normalizedProducts = products.map(normalizeProduct);
+  
+console.table(
+  normalizedProducts.map((p) => ({
+    name: p.name,
+    slug: p.slug,
+    featured: p.featured,
+  }))
+);
+
+console.table(
+  normalizedProducts
+    .filter((p) => p.featured)
+    .map((p) => ({
+      name: p.name,
+      slug: p.slug,
+    }))
+);
+
   const normalizedBrands = brands.map(normalizeBrand);
 
   return {
