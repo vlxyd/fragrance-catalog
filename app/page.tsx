@@ -7,6 +7,8 @@ import { getCatalogData } from "@/lib/catalog-service";
 export default async function Home() {
   const { brands, featuredProducts, newArrivals, bestSellers } = await getCatalogData();
 
+  console.log("FEATURED PRODUCTS:", featuredProducts);
+
   return (
     <div className="space-y-10">
       <section className="overflow-hidden rounded-[2.75rem] border border-stone-200/80 bg-white/80 p-8 shadow-[0_24px_80px_rgba(0,0,0,0.05)] dark:border-stone-800 dark:bg-stone-900/80 lg:p-12">
