@@ -35,13 +35,15 @@ console.log(product.gallery);
       className="group overflow-hidden rounded-[2rem] border border-stone-200/80 bg-white/90 shadow-[0_24px_80px_rgba(0,0,0,0.06)] transition dark:border-stone-800 dark:bg-stone-900/90"
     >
       <div className="relative overflow-hidden">
-        <Image
-          src={imageSrc}
-          alt={product.name}
-          width={800}
-          height={900}
-          className="h-64 w-full object-cover transition duration-500 group-hover:scale-105"
-        />
+        <div className="relative flex h-64 w-full items-center justify-center bg-stone-50 dark:bg-stone-900">
+  <Image
+    src={imageSrc}
+    alt={product.name}
+    width={800}
+    height={900}
+    className="h-full w-full object-contain p-4 transition duration-500 group-hover:scale-105"
+  />
+</div>
         {product.featured ? (
           <span className="absolute left-4 top-4 rounded-full bg-amber-500/90 px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-stone-950">Featured</span>
         ) : null}
