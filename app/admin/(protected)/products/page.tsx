@@ -10,6 +10,8 @@ type Product = {
   price?: number | null;
   tags?: string | null;
 
+  gallery?: string[];
+
   brandId?: string;
   categoryId?: string;
 
@@ -97,7 +99,7 @@ export default function AdminProductsPage() {
   const [submitting, setSubmitting] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [form, setForm] = useState<ProductForm>(emptyForm);
-  
+
   useEffect(() => {
   console.log("FORM:", form);
   console.log("topNotes type:", typeof form.topNotes);
@@ -705,9 +707,19 @@ const gallery = selectedImages.length
 >
   <div className="flex gap-4">
 
-    <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-stone-800 text-2xl">
+    <div className="h-16 w-16 overflow-hidden rounded-2xl bg-stone-800">
+  {product.gallery?.[0] ? (
+    <img
+      src={product.gallery[0]}
+      alt={product.name}
+      className="h-full w-full object-cover"
+    />
+  ) : (
+    <div className="flex h-full w-full items-center justify-center text-2xl">
       📦
     </div>
+  )}
+</div>
 
     <div>
                     <p className="font-semibold text-stone-900 dark:text-stone-100">{product.name}</p>
