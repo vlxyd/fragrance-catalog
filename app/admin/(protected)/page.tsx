@@ -63,9 +63,9 @@ export default function AdminPage() {
   ];
 
   return (
-    <div className="space-y-8">
-      <section className="rounded-[2.5rem] border border-stone-200/80 bg-white/80 p-8 shadow-[0_24px_80px_rgba(0,0,0,0.05)] dark:border-stone-800 dark:bg-stone-900/80">
-        <div className="flex items-center gap-3">
+    <div className="flex h-full flex-col gap-8">
+      <section className="shrink-0 rounded-[2.5rem] border border-stone-200/80 bg-white/80 p-6 shadow-[0_24px_80px_rgba(0,0,0,0.05)] dark:border-stone-800 dark:bg-stone-900/80">
+      <div className="flex items-center gap-3">
           <div className="rounded-full border border-amber-300 bg-amber-100 p-3 text-amber-700 dark:border-amber-800 dark:bg-amber-950/30 dark:text-amber-400">
             <LayoutDashboard size={18} />
           </div>
@@ -90,8 +90,8 @@ export default function AdminPage() {
         </div>
       </section>
 
-      <section className="rounded-[2.5rem] border border-stone-200/80 bg-white/80 p-8 shadow-sm dark:border-stone-800 dark:bg-stone-900/80">
-        <div className="flex items-center justify-between">
+      <section className="flex flex-1 flex-col rounded-[2.5rem] border border-stone-200/80 bg-white/80 p-6 shadow-sm dark:border-stone-800 dark:bg-stone-900/80">
+      <div className="flex items-center justify-between">
           <div>
             <p className="text-sm uppercase tracking-[0.34em] text-amber-600">Content curation</p>
             <h2 className="mt-2 text-2xl font-semibold text-stone-900 dark:text-stone-100">Manage curated homepage sections</h2>
@@ -99,10 +99,10 @@ export default function AdminPage() {
           <a href="/admin/products" className="rounded-full bg-stone-900 px-4 py-2 text-sm font-semibold text-stone-100 transition hover:bg-amber-600 dark:bg-stone-100 dark:text-stone-900 dark:hover:bg-amber-400">Manage catalog</a>
         </div>
 
-        <div className="mt-6 grid gap-6 lg:grid-cols-2">
-          <div className="rounded-[1.5rem] border border-stone-200 bg-stone-50 p-5 dark:border-stone-800 dark:bg-stone-950/70">
-            <h3 className="text-lg font-semibold text-stone-900 dark:text-stone-100">Products</h3>
-            <div className="mt-4 space-y-3">
+        <div className="mt-6 grid flex-1 min-h-0 gap-6 lg:grid-cols-2">
+          <div className="flex min-h-0 flex-col rounded-[1.5rem] border border-stone-200 bg-stone-50 p-5 dark:border-stone-800 dark:bg-stone-950/70">
+          <h3 className="text-lg font-semibold text-stone-900 dark:text-stone-100">Products</h3>
+            <div className="mt-4 min-h-0 flex-1 space-y-3 overflow-y-auto pr-2">
               {products.map((product) => (
                 <div key={product.id} className="flex flex-wrap items-center justify-between gap-3 rounded-[1.1rem] border border-stone-200 bg-white/70 px-3 py-3 dark:border-stone-800 dark:bg-stone-900/70">
                   <p className="font-medium text-stone-900 dark:text-stone-100">{product.name}</p>
@@ -127,9 +127,9 @@ export default function AdminPage() {
             </div>
           </div>
 
-          <div className="rounded-[1.5rem] border border-stone-200 bg-stone-50 p-5 dark:border-stone-800 dark:bg-stone-950/70">
-            <h3 className="text-lg font-semibold text-stone-900 dark:text-stone-100">Featured brands</h3>
-            <div className="mt-4 space-y-3">
+          <div className="flex min-h-0 flex-col rounded-[1.5rem] border border-stone-200 bg-stone-50 p-5 dark:border-stone-800 dark:bg-stone-950/70">
+          <h3 className="text-lg font-semibold text-stone-900 dark:text-stone-100">Featured brands</h3>
+            <div className="mt-4 min-h-0 flex-1 space-y-3 overflow-y-auto pr-2">
               {brands.map((brand) => (
                 <div key={brand.id} className="flex items-center justify-between rounded-[1.1rem] border border-stone-200 bg-white/70 px-3 py-3 dark:border-stone-800 dark:bg-stone-900/70">
                   <p className="font-medium text-stone-900 dark:text-stone-100">{brand.name}</p>
