@@ -80,8 +80,8 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
 }
 
   return (
-    <div className="h-screen overflow-hidden bg-[radial-gradient(circle_at_top,_rgba(255,215,0,0.12),_transparent_35%),linear-gradient(135deg,_#fffdf8_0%,_#f7f2eb_100%)] text-stone-900 transition-colors dark:bg-[radial-gradient(circle_at_top,_rgba(255,215,0,0.14),_transparent_35%),linear-gradient(135deg,_#0f0d0a_0%,_#171411_100%)] dark:text-stone-100">
-      <header className="sticky top-0 z-40 border-b border-stone-200/70 bg-white/80 backdrop-blur-xl dark:border-stone-800 dark:bg-stone-950/80">
+  <div className="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(255,215,0,0.12),_transparent_35%),linear-gradient(135deg,_#fffdf8_0%,_#f7f2eb_100%)] text-stone-900 transition-colors dark:bg-[radial-gradient(circle_at_top,_rgba(255,215,0,0.14),_transparent_35%),linear-gradient(135deg,_#0f0d0a_0%,_#171411_100%)] dark:text-stone-100">
+    <header className="sticky top-0 z-40 border-b border-stone-200/70 bg-white/80 backdrop-blur-xl dark:border-stone-800 dark:bg-stone-950/80">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
           <Link href="/" className="flex items-center gap-3">
   <Image
@@ -143,7 +143,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
       </header>
 
       <main
-  className="mx-auto flex min-h-[calc(100vh-12rem)] w-full max-w-7xl flex-col px-4 py-8 pb-16 sm:px-6 lg:px-8"
+  className="mx-auto w-full max-w-7xl px-4 py-8 pb-16 sm:px-6 lg:px-8"
 >
   {children}
 </main>

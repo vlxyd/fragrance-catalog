@@ -71,7 +71,7 @@ export default function AdminPage() {
           </div>
           <div>
             <p className="text-sm uppercase tracking-[0.34em] text-amber-600">Admin dashboard</p>
-            <h1 className="text-3xl font-semibold text-stone-900 dark:text-stone-100">Aurelia operations overview</h1>
+            <h1 className="text-3xl font-semibold text-stone-900 dark:text-stone-100">Agape Essence operations overview</h1>
           </div>
         </div>
         <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">

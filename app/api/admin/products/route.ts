@@ -3,6 +3,7 @@ import { getServerSession } from 'next-auth';
 import authOptions from '@/lib/auth';
 import prisma from '@/lib/prisma';
 import { ensureCatalogSeed } from '@/lib/catalog-seed';
+import { sendNewProductEmail } from "@/lib/email";
 
 function slugify(text: string) {
   return text
@@ -95,13 +96,26 @@ export async function POST(req: Request) {
   try {
     const data = await buildProductData(body);
     const created = await prisma.product.create({
-      data: {
-        ...data,
-        gallery: {
-          create: (body.gallery || body.images || []).map((url: string, i: number) => ({ url, position: i })),
-        },
-      },
-    });
+  data: {
+    ...data,
+    gallery: {
+      create: (body.gallery || body.images || []).map(
+        (url: string, i: number) => ({
+          url,
+          position: i,
+        })
+      ),
+    },
+  },
+  include: {
+    gallery: true,
+    brand: true,
+    category: true,
+  },
+});
+
+    await sendNewProductEmail(created as any);
+
     return NextResponse.json(created, { status: 201 });
   } catch (error) {
     return NextResponse.json({ error: 'Could not create product' }, { status: 500 });

@@ -1,4 +1,4 @@
-# Aurelia Fragrance Catalog
+# AGAPE ESSENCE Fragrance Catalog
 
 A premium, editorial fragrance catalog experience built with Next.js, TypeScript, and Tailwind CSS. The site highlights curated fragrances, offers a polished shop experience, and includes an admin-facing overview for managing products, brands, and categories.
 

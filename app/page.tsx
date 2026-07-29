@@ -3,6 +3,7 @@ import { ArrowRight, Sparkles } from "lucide-react";
 import { ProductCard } from "@/components/product-card";
 import { SectionHeading } from "@/components/section-heading";
 import { getCatalogData } from "@/lib/catalog-service";
+import { Newsletter } from "@/components/newsletter";
 
 export const dynamic = "force-dynamic";
 
@@ -113,19 +114,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="rounded-[2.5rem] border border-stone-200/80 bg-stone-900 p-8 text-stone-100 shadow-[0_24px_80px_rgba(0,0,0,0.12)] dark:border-stone-700">
-        <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
-          <div>
-            <p className="text-sm uppercase tracking-[0.32em] text-amber-400">Newsletter</p>
-            <h2 className="mt-3 text-3xl font-semibold">Receive early access to new releases.</h2>
-            <p className="mt-3 max-w-xl text-base leading-8 text-stone-300">Join our private list for seasonal launches, limited offers, and first access to our catalog edit.</p>
-          </div>
-          <div className="flex flex-col gap-3 sm:flex-row">
-            <input className="rounded-full border border-stone-700 bg-stone-800 px-4 py-3 text-sm text-stone-100 outline-none" placeholder="Email address" />
-            <button className="rounded-full bg-amber-500 px-5 py-3 text-sm font-semibold text-stone-950 transition hover:bg-amber-400">Subscribe</button>
-          </div>
-        </div>
-      </section>
+      <Newsletter />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
-import { supabase } from "@/lib/supabase";
 import { randomUUID } from "crypto";
+import { supabaseAdmin } from "@/lib/supabase-admin";
 
 export async function POST(req: Request) {
   try {
@@ -21,7 +21,7 @@ export async function POST(req: Request) {
 
     const filename = `${randomUUID()}-${file.name}`;
 
-    const { error } = await supabase.storage
+    const { error } = await supabaseAdmin.storage
       .from("products")
       .upload(filename, buffer, {
         contentType: file.type,
@@ -31,7 +31,7 @@ export async function POST(req: Request) {
       return NextResponse.json(error, { status: 500 });
     }
 
-    const { data } = supabase.storage
+    const { data } = supabaseAdmin.storage
       .from("products")
       .getPublicUrl(filename);
 

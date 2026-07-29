@@ -9,11 +9,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const product = await getProductBySlug(slug);
 
   if (!product) {
-    return { title: "Product not found | Aurelia" };
+    return { title: "Product not found | Agape Essence" };
   }
 
   return {
-    title: `${product.name} | Aurelia`,
+    title: `${product.name} | Agape Essence`,
     description: product.description,
   };
 }

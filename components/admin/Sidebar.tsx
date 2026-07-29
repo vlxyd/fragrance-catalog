@@ -3,11 +3,13 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+
 import {
   LayoutDashboard,
   Package2,
   Tags,
-  Users,
+  Mail,
   Settings,
   Sparkles,
 } from "lucide-react";
@@ -53,10 +55,10 @@ const navigation = [
     title: "Management",
     items: [
       {
-        href: "/admin/users",
-        label: "Users",
-        icon: Users,
-      },
+  href: "/admin/inbox",
+  label: "Inbox",
+  icon: Mail,
+},
       {
         href: "/admin/settings",
         label: "Settings",
@@ -68,6 +70,29 @@ const navigation = [
 
 export default function Sidebar() {
   const pathname = usePathname();
+
+const [unreadCount, setUnreadCount] = useState(0);
+
+useEffect(() => {
+  async function loadUnread() {
+    try {
+      const res = await fetch("/api/inbox");
+      const data = await res.json();
+
+      setUnreadCount(
+        data.filter((item: any) => !item.is_read).length
+      );
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  loadUnread();
+
+  const interval = setInterval(loadUnread, 10000);
+
+  return () => clearInterval(interval);
+}, []);
 
   return (
     <aside className="flex h-screen w-72 flex-col border-r border-stone-700/50 bg-[#171310]">
@@ -131,9 +156,17 @@ export default function Sidebar() {
   className="transition-transform duration-300 group-hover:scale-110"
 />
 
-                    <span className="font-medium">
-                      {item.label}
-                    </span>
+                    <div className="flex w-full items-center justify-between">
+  <span className="font-medium">
+    {item.label}
+  </span>
+
+  {item.label === "Inbox" && unreadCount > 0 && (
+    <span className="flex h-6 min-w-6 items-center justify-center rounded-full bg-amber-500 px-2 text-xs font-bold text-black">
+      {unreadCount}
+    </span>
+  )}
+</div>
                   </Link>
                 );
               })}
